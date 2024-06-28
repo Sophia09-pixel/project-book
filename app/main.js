@@ -1,12 +1,10 @@
-let livros = [];
-const endpointAPI = 'https://guilhermeonrails.github.io/casadocodigo/livros.json';
+let livros = []
+const endpointDaAPI = 'https://guilhermeonrails.github.io/casadocodigo/livros.json'
+getBuscarLivrosDaAPI()
 
-getBuscarLivrosAPI();
-
-async function getBuscarLivrosAPI(){
-    const res = await fetch(endpointAPI)
+async function getBuscarLivrosDaAPI() {
+    const res = await fetch(endpointDaAPI)
     livros = await res.json()
-    let livrosComDesconto = aplicarDesconto(livros)
+    livros = aplicarDesconto(livros)
     exibirOsLivrosNaTela(livrosComDesconto)
 }
-
